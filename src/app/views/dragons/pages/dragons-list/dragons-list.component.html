@@ -6,24 +6,11 @@
     <div class="date">Criado em</div>
     <div class="actions"></div>
   </div>
-  <div class="list-align list-item" *ngFor="let dragon of dragons">
-    <div class="image"><img [src]="dragon.avatar" alt="dragon image" /></div>
-    <div class="name">{{ dragon.name }}</div>
-    <div class="type">{{ dragon.type }}</div>
-    <div class="date">{{ dragon.createdAt | date: "dd/MM/yyyy" }}</div>
-    <div class="actions">
-      <div class="action-icons">
-        <fa-icon
-          class="pencil"
-          [icon]="pencilIcon"
-          (click)="editDragon(dragon)"
-        ></fa-icon>
-        <fa-icon
-          class="trash"
-          [icon]="trashIcon"
-          (click)="deleteDragon(dragon)"
-        ></fa-icon>
-      </div>
-    </div>
-  </div>
+
+  <app-dragon-list-item
+    *ngFor="let dragon of dragons"
+    (editDragon)="editDragon($event)"
+    (deleteDragon)="deleteDragon($event)"
+    [dragon]="dragon"
+  ></app-dragon-list-item>
 </div>

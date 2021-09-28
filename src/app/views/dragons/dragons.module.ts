@@ -6,13 +6,19 @@ import { DragonsListComponent } from './pages/dragons-list/dragons-list.componen
 import { DragonDetailComponent } from './pages/dragon-detail/dragon-detail.component';
 import { DragonsMainComponent } from './pages/dragons-main/dragons-main.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DragonListItemModule } from './components/dragon-list-item/dragon-list-item.module';
 
 @NgModule({
   declarations: [
     DragonsListComponent,
     DragonDetailComponent,
-    DragonsMainComponent
+    DragonsMainComponent,
   ],
-  imports: [CommonModule, DragonsRoutingModule, FontAwesomeModule],
+  imports: [
+    CommonModule,
+    DragonsRoutingModule,
+    FontAwesomeModule,
+    DragonListItemModule,
+  ],
 })
 export class DragonsModule {}
