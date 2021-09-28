@@ -1,0 +1,37 @@
+<div class="login">
+  <form [formGroup]="loginForm">
+    <app-input
+      id="email"
+      label="Email"
+      name="email"
+      [formGroup]="loginForm"
+      [errorMessages]="{
+        required: 'Este campo é obrigatório',
+        email: 'O formato do email está inválido!'
+      }"
+    ></app-input>
+    <div class="password">
+      <app-input
+        id="password"
+        type="password"
+        label="Senha"
+        name="password"
+        [formGroup]="loginForm"
+        [errorMessages]="{
+          required: 'Este campo é obrigatório'
+        }"
+      ></app-input>
+    </div>
+    <div class="button-container">
+      <div class="buttons">
+        <app-button
+          [text]="buttonText"
+          (click)="handleButtonClick()"
+        ></app-button>
+        <span class="secondary-button" (click)="secondaryButtonClick.emit()">{{
+          secondaryButtonText
+        }}</span>
+      </div>
+    </div>
+  </form>
+</div>

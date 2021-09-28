@@ -1,0 +1,21 @@
+@import "../../style/variables.scss";
+
+.button {
+  background-color: $primary_color;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 500;
+  transition: 200ms;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: $primary_color_hover;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+}

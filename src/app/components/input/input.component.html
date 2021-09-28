@@ -1,0 +1,11 @@
+<div class="input-container" [formGroup]="formGroup">
+  <label [for]="id" *ngIf="label">{{ label }}</label>
+  <div class="input" [class.has-error]="validateField(name)">
+    <input [id]="id" [type]="type" [formControlName]="name" />
+  </div>
+  <div class="error-message" *ngIf="validateField(name)">
+    <ng-container *ngFor="let errorMessage of getErrorMessagesList()">
+      <div *ngIf="errorMessage">{{ errorMessage }}</div>
+    </ng-container>
+  </div>
+</div>
