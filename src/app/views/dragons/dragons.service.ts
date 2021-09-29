@@ -13,4 +13,8 @@ export class DragonsService {
   getAllDragons(): Observable<Dragon[]> {
     return this.http.get<Dragon[]>(dragonApiUrl);
   }
+
+  deleteDragon(id: string): Observable<Dragon> {
+    return this.http.delete<Dragon>(`${dragonApiUrl}/${id}`);
+  }
 }

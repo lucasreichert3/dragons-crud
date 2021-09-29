@@ -1,7 +1,6 @@
 @import "../../style/variables.scss";
 
 .button {
-  background-color: $primary_color;
   border: none;
   padding: 0.5rem 1.5rem;
   border-radius: 20px;
@@ -11,8 +10,19 @@
   cursor: pointer;
   font-size: 16px;
 
-  &:hover {
-    background-color: $primary_color_hover;
+  &.danger {
+    background-color: $red_danger;
+
+    &:hover {
+      background-color: $red_danger_hover;
+    }
+  }
+
+  &.primary {
+    background-color: $primary_color;
+    &:hover {
+      background-color: $primary_color_hover;
+    }
   }
 
   &.disabled {

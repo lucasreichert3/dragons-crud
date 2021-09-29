@@ -1,0 +1,21 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4>{{ title }}</h4>
+  </div>
+  <div class="modal-body">
+    <p>{{ message }}</p>
+  </div>
+  <div class="modal-footer">
+    <div class="buttons">
+      <div class="no-button">
+        <app-button
+          text="Não"
+          (clicked)="close()"
+          [status]="buttonStatus.danger"
+        ></app-button>
+      </div>
+
+      <app-button text="Sim" (clicked)="confirm()"></app-button>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,7 @@ import {NgxLocalStorageModule} from 'ngx-localstorage';
 import { ToastrModule } from 'ngx-toastr';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import { SimpleModalModule } from 'ngx-simple-modal';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     NgxLocalStorageModule.forRoot(),
     ToastrModule.forRoot(),
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    SimpleModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
