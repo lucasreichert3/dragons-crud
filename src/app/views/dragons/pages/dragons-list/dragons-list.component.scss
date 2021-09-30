@@ -1,5 +1,11 @@
 @import "../../../../style/variables.scss";
 
+.new-dragon-button {
+  padding-bottom: 1.5rem;
+  display: flex;
+  justify-content: end;
+}
+
 .list-container {
   width: 100%;
   background-color: #fff;

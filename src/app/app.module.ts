@@ -5,16 +5,14 @@ import { CookieModule } from 'ngx-cookie';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {NgxLocalStorageModule} from 'ngx-localstorage';
+import { NgxLocalStorageModule } from 'ngx-localstorage';
 import { ToastrModule } from 'ngx-toastr';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
-import { SimpleModalModule } from 'ngx-simple-modal';
+import { defaultSimpleModalOptions, SimpleModalModule } from 'ngx-simple-modal';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -24,9 +22,16 @@ import { SimpleModalModule } from 'ngx-simple-modal';
     ToastrModule.forRoot(),
     FontAwesomeModule,
     HttpClientModule,
-    SimpleModalModule
+    SimpleModalModule.forRoot(
+      { container: document.body },
+      {
+        ...defaultSimpleModalOptions,
+        closeOnEscape: true,
+        closeOnClickOutside: true,
+      }
+    ),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

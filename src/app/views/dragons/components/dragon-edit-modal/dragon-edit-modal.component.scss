@@ -1,0 +1,16 @@
+.align-flex {
+  display: flex;
+  align-items: center;
+
+  .close-icon {
+    margin-left: auto;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+
+.buttons {
+  display: flex;
+  margin-left: auto;
+}

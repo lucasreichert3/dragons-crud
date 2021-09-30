@@ -1,16 +1,27 @@
-<div class="list-container">
-  <div class="list-align list-header">
-    <div class="image"></div>
-    <div class="name">Nome</div>
-    <div class="type">Tipo</div>
-    <div class="date">Criado em</div>
-    <div class="actions"></div>
-  </div>
+<app-dragon-edit-modal
+  [visible]="editModal"
+  [dragon]="currentEditDragon"
+  (modalClosed)="handleEditModalClosed()"
+></app-dragon-edit-modal>
 
-  <app-dragon-list-item
-    *ngFor="let dragon of dragons"
-    (editDragon)="editDragon($event)"
-    (deleteDragon)="deleteDragon($event)"
-    [dragon]="dragon"
-  ></app-dragon-list-item>
+<div class="list-wrapper">
+  <div class="new-dragon-button">
+    <app-button text="Novo dragão" (clicked)="showDragonModal()"></app-button>
+  </div>
+  <div class="list-container">
+    <div class="list-align list-header">
+      <div class="image"></div>
+      <div class="name">Nome</div>
+      <div class="type">Tipo</div>
+      <div class="date">Criado em</div>
+      <div class="actions"></div>
+    </div>
+
+    <app-dragon-list-item
+      *ngFor="let dragon of dragons"
+      (editDragon)="showDragonModal($event)"
+      (deleteDragon)="deleteDragon($event)"
+      [dragon]="dragon"
+    ></app-dragon-list-item>
+  </div>
 </div>

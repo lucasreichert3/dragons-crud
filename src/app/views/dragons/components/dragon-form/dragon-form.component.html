@@ -1,0 +1,32 @@
+<div class="dragon-form">
+  <form [formGroup]="dragonForm">
+    <app-input
+      id="name"
+      label="Name"
+      name="name"
+      [formGroup]="dragonForm"
+      [errorMessages]="errorMessage"
+    ></app-input>
+    <div class="input">
+      <app-input
+        id="type"
+        label="Tipo"
+        name="type"
+        [formGroup]="dragonForm"
+        [errorMessages]="errorMessage"
+      ></app-input>
+    </div>
+    <div class="input">
+      <app-input
+        id="avatar"
+        label="Link para foto"
+        name="avatar"
+        [formGroup]="dragonForm"
+        [errorMessages]="errorMessage"
+      ></app-input>
+    </div>
+  </form>
+  <div class="button">
+    <app-button text="Salvar" (clicked)="handleSave()"></app-button>
+  </div>
+</div>

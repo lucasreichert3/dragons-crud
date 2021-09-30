@@ -7,6 +7,8 @@ import { DragonDetailComponent } from './pages/dragon-detail/dragon-detail.compo
 import { DragonsMainComponent } from './pages/dragons-main/dragons-main.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DragonListItemModule } from './components/dragon-list-item/dragon-list-item.module';
+import { DragonEditModalModule } from './components/dragon-edit-modal/dragon-edit-modal.module';
+import { ButtonModule } from 'src/app/components/button/button.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { DragonListItemModule } from './components/dragon-list-item/dragon-list-
     DragonsRoutingModule,
     FontAwesomeModule,
     DragonListItemModule,
+    DragonEditModalModule,
+    ButtonModule
   ],
 })
 export class DragonsModule {}

@@ -1,0 +1,14 @@
+<tec-modal
+  [opened]="visible"
+  [modalTitle]="getModalTitle()"
+  (hidden)="closeModal()"
+  size="medium"
+>
+  <div slot="content">
+    <app-dragon-form
+      [dragon]="dragon"
+      (saved)="closeModal()"
+      *ngIf="visible"
+    ></app-dragon-form>
+  </div>
+</tec-modal>

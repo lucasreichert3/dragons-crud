@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { SimpleModalService } from 'ngx-simple-modal';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { DragonEditModalComponent } from '../../components/dragon-edit-modal/dragon-edit-modal.component';
 import { Dragon } from '../../dragons.model';
 import { DragonsService } from '../../dragons.service';
 
@@ -15,17 +17,20 @@ export class DragonsListComponent implements OnInit, OnDestroy {
   unSubscribe = new Subject<void>();
   loading = false;
   errorMessage = false;
+  editModal = false;
+  currentEditDragon?: Dragon;
 
   constructor(
     private dragonsService: DragonsService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private simpleModalService: SimpleModalService
   ) {}
 
   ngOnInit(): void {
-    this.loadDraongs();
+    this.loadDragons();
   }
 
-  loadDraongs() {
+  loadDragons() {
     this.loading = true;
     this.dragonsService
       .getAllDragons()
@@ -40,8 +45,14 @@ export class DragonsListComponent implements OnInit, OnDestroy {
       );
   }
 
-  editDragon(dragon: Dragon) {
-    console.log(dragon);
+  showDragonModal(dragon?: Dragon) {
+    this.editModal = true;
+    this.currentEditDragon = dragon;
+  }
+
+  handleEditModalClosed() {
+    this.editModal = false;
+    this.currentEditDragon = undefined;
   }
 
   deleteDragon({ id }: Dragon) {
