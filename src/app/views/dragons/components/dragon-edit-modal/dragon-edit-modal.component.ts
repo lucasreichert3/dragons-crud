@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Dragon } from '../../dragons.model';
+import { Dragon } from '../../state/dragons.model';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

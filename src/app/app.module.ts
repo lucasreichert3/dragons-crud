@@ -10,6 +10,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { defaultSimpleModalOptions, SimpleModalModule } from 'ngx-simple-modal';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +32,7 @@ import { defaultSimpleModalOptions, SimpleModalModule } from 'ngx-simple-modal';
         closeOnClickOutside: true,
       }
     ),
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

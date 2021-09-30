@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { validateAllFields } from 'src/app/utils/validateField';
-import { Dragon } from '../../dragons.model';
+import { Dragon } from '../../state/dragons.model';
+import { DragonsService } from '../../state/dragons.service';
 
 @Component({
   selector: 'app-dragon-form',
@@ -10,13 +13,18 @@ import { Dragon } from '../../dragons.model';
 })
 export class DragonFormComponent implements OnInit {
   @Input() dragon?: Dragon;
-  @Output() saved = new EventEmitter<Dragon>();
+  @Output() saved = new EventEmitter<void>();
 
+  loading = false;
   errorMessage = { required: 'Este campo é obrigatório' };
 
   dragonForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private dragonService: DragonsService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     const { name, type, avatar } = this.dragon || {};
@@ -29,10 +37,56 @@ export class DragonFormComponent implements OnInit {
 
   handleSave() {
     if (this.dragonForm.invalid) {
-      validateAllFields(this.dragonForm)
-      return
+      validateAllFields(this.dragonForm);
+      return;
     }
-    const { name, type, avatar } = this.dragonForm.value;
-    this.saved.emit(this.dragon);
+
+    this.saveDragon();
+  }
+
+  saveDragon() {
+    this.loading = true;
+
+    this.getSaveDragonObservable().subscribe(
+      () => {
+        this.loading = false;
+        this.showMessage(
+          false,
+          `Dragão ${this.getActionText().success} com sucesso!`
+        );
+        this.saved.emit(this.dragonForm.value);
+      },
+      () => {
+        this.loading = false;
+        this.showMessage(
+          true,
+          `Ocorreu um problema ao ${this.getActionText().error} o dragão!`
+        );
+      }
+    );
+  }
+
+  getActionText(): { error: string; success: string } {
+    return !this.dragon
+      ? { success: 'salvo', error: 'salvar' }
+      : { success: 'alterado', error: 'alterar' };
+  }
+
+  showMessage(error: boolean, message: string, title?: string) {
+    error
+      ? this.toastr.error(message, title)
+      : this.toastr.success(message, title);
+  }
+
+  getSaveDragonObservable(): Observable<Dragon> {
+    if (!this.dragon) {
+      return this.dragonService.saveDragon(this.dragonForm.value);
+    } else {
+      const newDragonValue: Dragon = {
+        ...this.dragon,
+        ...this.dragonForm.value,
+      };
+      return this.dragonService.update(newDragonValue);
+    }
   }
 }

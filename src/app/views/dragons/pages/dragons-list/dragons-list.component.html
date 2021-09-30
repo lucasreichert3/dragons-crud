@@ -20,7 +20,6 @@
     <app-dragon-list-item
       *ngFor="let dragon of dragons"
       (editDragon)="showDragonModal($event)"
-      (deleteDragon)="deleteDragon($event)"
       [dragon]="dragon"
     ></app-dragon-list-item>
   </div>
