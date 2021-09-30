@@ -32,7 +32,7 @@ export class DragonsListComponent implements OnInit, OnDestroy {
 
   listenDragonsStore() {
     this.query
-      .select(({ dragons }) => dragons)
+      .getAlphabeticOrder()
       .pipe(takeUntil(this.unSubscribe))
       .subscribe((dragons) => (this.dragons = dragons));
   }
