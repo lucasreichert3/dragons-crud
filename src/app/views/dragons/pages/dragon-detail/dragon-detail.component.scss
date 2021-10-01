@@ -7,12 +7,11 @@
 
   .icon {
     font-size: 35px;
-    padding-right: .5rem;
+    padding-right: 0.5rem;
   }
 }
 
 .detail-card {
-  width: 100%;
   background-color: #fff;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
@@ -22,7 +21,6 @@
 
   .dragon-info {
     width: 100%;
-    padding-left: 2rem;
   }
 
   .info {
@@ -53,5 +51,35 @@
       height: 200px;
       border-radius: 50%;
     }
+  }
+}
+
+@media (max-width: 699px) {
+  .detail-card {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 700px) {
+  .dragon-properties {
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .date {
+    padding-top: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .dragon-properties {
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
   }
 }

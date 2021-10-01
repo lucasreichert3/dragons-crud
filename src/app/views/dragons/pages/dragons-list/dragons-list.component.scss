@@ -12,19 +12,38 @@
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
 
-  .list-align {
+  .list-header {
     display: flex;
     align-items: center;
     margin: 0 2rem;
-    border-bottom: 1px solid #d9d9d9;
-  }
-
-  .list-header {
     padding: 1.5rem 0 1rem 0;
     font-weight: 700;
     border-bottom: 1px solid #d9d9d9;
   }
+}
 
+@media (max-width: 699px) {
+  .list-header {
+    display: none !important;
+  }
+}
+
+@media (min-width: 700px) {
+  .image {
+    width: 10%;
+  }
+  .name,
+  .type {
+    width: 30%;
+  }
+
+  .date,
+  .actions {
+    width: 15%;
+  }
+}
+
+@media (min-width: 1200px) {
   .image {
     width: 10%;
   }

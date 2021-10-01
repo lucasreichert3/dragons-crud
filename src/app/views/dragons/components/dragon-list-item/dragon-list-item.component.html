@@ -1,25 +1,33 @@
-<div class="list-align list-item" (dblclick)="redirectToDetail()" *ngIf="dragon">
-  <div class="image"><img [src]="dragon.avatar" alt="dragon image" /></div>
-  <div class="name">{{ dragon.name }}</div>
-  <div class="type">{{ dragon.type }}</div>
-  <div class="date">{{ dragon.createdAt | date: "dd/MM/yyyy" }}</div>
-  <div class="actions">
-    <div class="action-icons">
-      <fa-icon
-        class="detail"
-        [icon]="detailIcon"
-        (click)="redirectToDetail()"
-      ></fa-icon>
-      <fa-icon
-        class="pencil"
-        [icon]="pencilIcon"
-        (click)="editDragon.emit(dragon)"
-      ></fa-icon>
-      <fa-icon
-        class="trash"
-        [icon]="trashIcon"
-        (click)="showConfirm()"
-      ></fa-icon>
+<div
+  class="list-align list-item"
+  (dblclick)="redirectToDetail()"
+  *ngIf="dragon"
+>
+  <div class="image-name-container">
+    <div class="image"><img [src]="dragon.avatar" alt="dragon image" /></div>
+    <div class="name">{{ dragon.name }}</div>
+    <div class="type">{{ dragon.type }}</div>
+  </div>
+  <div class="action-date">
+    <div class="date">{{ dragon.createdAt | date: "dd/MM/yyyy" }}</div>
+    <div class="actions">
+      <div class="action-icons">
+        <fa-icon
+          class="detail"
+          [icon]="detailIcon"
+          (click)="redirectToDetail()"
+        ></fa-icon>
+        <fa-icon
+          class="pencil"
+          [icon]="pencilIcon"
+          (click)="editDragon.emit(dragon)"
+        ></fa-icon>
+        <fa-icon
+          class="trash"
+          [icon]="trashIcon"
+          (click)="showConfirm()"
+        ></fa-icon>
+      </div>
     </div>
   </div>
 </div>

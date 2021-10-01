@@ -10,20 +10,22 @@
   <div class="image">
     <img [src]="dragon.avatar" alt="dragon image" />
   </div>
-  <div class="dragon-info">
-    <div class="info">
-      <span class="label">Nome</span>
-      <h1 class="text">{{ dragon.name }}</h1>
+  <div class="dragon-properties">
+    <div class="dragon-info">
+      <div class="info">
+        <span class="label">Nome</span>
+        <h1 class="text">{{ dragon.name }}</h1>
+      </div>
+      <div class="info">
+        <span class="label">Tipo</span>
+        <h1 class="text">{{ dragon.type }}</h1>
+      </div>
     </div>
-    <div class="info">
-      <span class="label">Tipo</span>
-      <h1 class="text">{{ dragon.type }}</h1>
-    </div>
-  </div>
-  <div class="date">
-    <div class="info">
-      <span class="label">Data de criação</span>
-      <h1 class="text">{{ dragon.createdAt | date: "dd/MM/yyyy" }}</h1>
+    <div class="date">
+      <div class="info">
+        <span class="label">Data de criação</span>
+        <h1 class="text">{{ dragon.createdAt | date: "dd/MM/yyyy" }}</h1>
+      </div>
     </div>
   </div>
 </div>

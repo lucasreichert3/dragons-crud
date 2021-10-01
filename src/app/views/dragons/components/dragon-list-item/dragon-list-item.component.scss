@@ -15,25 +15,19 @@
   }
 
   .image {
-    width: 10%;
-  }
-
-  .name,
-  .type {
-    width: 30%;
-  }
-
-  .date,
-  .actions {
-    width: 15%;
-  }
-
-  .image {
     img {
       width: 50px;
       height: 50px;
       border-radius: 50px;
     }
+  }
+
+  .image-name-container {
+    display: contents;
+  }
+
+  .action-date {
+    display: contents;
   }
 
   .actions {
@@ -43,7 +37,7 @@
     }
 
     .detail {
-      padding-right: .5rem;
+      padding-right: 0.5rem;
       color: #333;
       cursor: pointer;
     }
@@ -58,5 +52,68 @@
       cursor: pointer;
       color: $primary_color;
     }
+  }
+}
+
+@media (max-width: 699px) {
+  .list-item {
+    display: block;
+
+    .image-name-container {
+      display: flex !important;
+      align-items: center;
+    }
+
+    .action-date {
+      display: flex !important;
+      align-items: center;
+    }
+
+    .image {
+      width: 20%;
+    }
+    .name {
+      width: 40%;
+    }
+
+    .type {
+      width: 40%;
+    }
+
+    .date,
+    .actions {
+      padding: 1rem 0;
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .image {
+    width: 10%;
+  }
+  .name,
+  .type {
+    width: 30%;
+  }
+
+  .date,
+  .actions {
+    width: 15%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .image {
+    width: 10%;
+  }
+  .name,
+  .type {
+    width: 30%;
+  }
+
+  .date,
+  .actions {
+    width: 15%;
   }
 }
