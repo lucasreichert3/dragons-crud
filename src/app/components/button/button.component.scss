@@ -2,13 +2,13 @@
 
 .button {
   border: none;
-  padding: 0.5rem 1.5rem;
+  padding: 0.7rem 1.7rem;
   border-radius: 20px;
   color: #fff;
   font-weight: 500;
   transition: 200ms;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 17px;
 
   &.danger {
     background-color: $red_danger;
