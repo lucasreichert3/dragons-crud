@@ -22,6 +22,10 @@ export class DragonsService {
     );
   }
 
+  getDragon(id: string): Observable<Dragon> {
+    return this.http.get<Dragon>(`${dragonApiUrl}/${id}`);
+  }
+
   saveDragon(input: DragonCreateInput) {
     return this.http.post<Dragon>(dragonApiUrl, input).pipe(
       tap((dragon) =>

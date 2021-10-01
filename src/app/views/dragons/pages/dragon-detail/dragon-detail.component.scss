@@ -1,0 +1,57 @@
+.back-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+  color: #333;
+
+  .icon {
+    font-size: 35px;
+    padding-right: .5rem;
+  }
+}
+
+.detail-card {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+
+  .dragon-info {
+    width: 100%;
+    padding-left: 2rem;
+  }
+
+  .info {
+    color: #333;
+
+    &:nth-child(1) {
+      padding-bottom: 1rem;
+    }
+
+    .label {
+      font-size: 14px;
+    }
+
+    .text {
+      font-size: 36px;
+      font-weight: 700;
+    }
+  }
+
+  .date {
+    display: flex;
+    width: 100%;
+  }
+
+  .image {
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+  }
+}

@@ -6,7 +6,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPencilAlt, faEye } from '@fortawesome/free-solid-svg-icons';
 import { Dragon } from '../../state/dragons.model';
 import { SimpleModalService } from 'ngx-simple-modal';
 import { ConfirmationModalComponent } from 'src/app/components/confirmation-modal/confirmation-modal.component';
@@ -14,6 +14,7 @@ import { DragonsService } from '../../state/dragons.service';
 import { takeUntil } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dragon-list-item',
@@ -26,13 +27,15 @@ export class DragonListItemComponent implements OnInit, OnDestroy {
 
   trashIcon = faTrash;
   pencilIcon = faPencilAlt;
+  detailIcon = faEye;
   loading = false;
   unSubscribe = new Subject<void>();
 
   constructor(
     private simpleModalService: SimpleModalService,
     private dragonsService: DragonsService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -69,6 +72,10 @@ export class DragonListItemComponent implements OnInit, OnDestroy {
 
   showErrorMessage(message: string, title?: string) {
     this.toastr.error(message, title);
+  }
+
+  redirectToDetail() {
+    this.router.navigate(['/dragons', this.dragon.id]);
   }
 
   ngOnDestroy() {
