@@ -16,8 +16,12 @@
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   padding: 1rem;
-  display: flex;
   align-items: center;
+
+  .dragon {
+    display: flex;
+    width: 100%;
+  }
 
   .dragon-info {
     width: 100%;
@@ -55,8 +59,9 @@
 }
 
 @media (max-width: 699px) {
-  .detail-card {
+  .dragon {
     flex-direction: column;
+    align-items: center;
   }
 }
 

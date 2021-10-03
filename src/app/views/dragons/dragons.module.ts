@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DragonListItemModule } from './components/dragon-list-item/dragon-list-item.module';
 import { DragonEditModalModule } from './components/dragon-edit-modal/dragon-edit-modal.module';
 import { ButtonModule } from 'src/app/components/button/button.module';
+import { LoadingModule } from 'src/app/components/loading/loading.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ButtonModule } from 'src/app/components/button/button.module';
     FontAwesomeModule,
     DragonListItemModule,
     DragonEditModalModule,
-    ButtonModule
+    ButtonModule,
+    LoadingModule
   ],
 })
 export class DragonsModule {}
