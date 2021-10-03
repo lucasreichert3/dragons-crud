@@ -10,7 +10,22 @@
   </div>
   <div class="list-container">
     <app-loading [isLoading]="loading"></app-loading>
-    <div class="list-header" *ngIf="!loading">
+    <div class="error-message">
+      <app-empty-state
+        *ngIf="getEmptyState(); let emptyState"
+        [visible]="!!emptyState"
+        path="assets/lotties/dragon-fly.json"
+        [title]="emptyState.title"
+        [description]="emptyState.description"
+        [buttonText]="emptyState.buttonText"
+        (buttonClicked)="emptyState.buttonCallback()"
+        [size]="350"
+      ></app-empty-state>
+    </div>
+    <div
+      class="list-header"
+      *ngIf="!loading && dragons.length && !errorMessage"
+    >
       <div class="image"></div>
       <div class="name">Nome</div>
       <div class="type">Tipo</div>
@@ -18,7 +33,7 @@
       <div class="actions"></div>
     </div>
 
-    <ng-container *ngIf="!loading">
+    <ng-container *ngIf="!loading && !errorMessage">
       <app-dragon-list-item
         *ngFor="let dragon of dragons"
         (editDragon)="showDragonModal($event)"

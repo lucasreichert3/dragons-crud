@@ -10,6 +10,7 @@ import { DragonListItemModule } from './components/dragon-list-item/dragon-list-
 import { DragonEditModalModule } from './components/dragon-edit-modal/dragon-edit-modal.module';
 import { ButtonModule } from 'src/app/components/button/button.module';
 import { LoadingModule } from 'src/app/components/loading/loading.module';
+import { EmptyStateModule } from 'src/app/components/empty-state/empty-state.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoadingModule } from 'src/app/components/loading/loading.module';
     DragonListItemModule,
     DragonEditModalModule,
     ButtonModule,
-    LoadingModule
+    LoadingModule,
+    EmptyStateModule
   ],
 })
 export class DragonsModule {}

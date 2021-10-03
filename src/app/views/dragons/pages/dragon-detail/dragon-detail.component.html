@@ -8,7 +8,16 @@
 
 <div class="detail-card">
   <app-loading [isLoading]="loading"></app-loading>
-  <div class="dragon" *ngIf="!loading">
+  <app-empty-state
+    [visible]="errorMessage && !loading"
+    path="assets/lotties/dragon-fly.json"
+    title="Ocorreu um problema!"
+    description="Não foi possível carregar as informações do dragão!"
+    buttonText="Tentar novamente"
+    (buttonClicked)="tryAgain()"
+    [size]="350"
+  ></app-empty-state>
+  <div class="dragon" *ngIf="!loading && !errorMessage">
     <div class="image">
       <img [src]="dragon.avatar" alt="dragon image" />
     </div>

@@ -1,0 +1,26 @@
+.emtpy-state-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    h1 {
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+    span {
+      font-size: 15px;
+      color: rgb(78, 78, 78);
+      padding-top: .5rem;
+    }
+
+    .empty-state-button {
+      padding-top: .8rem;
+    }
+  }
+}

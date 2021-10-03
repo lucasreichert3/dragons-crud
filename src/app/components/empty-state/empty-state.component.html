@@ -1,0 +1,14 @@
+<div class="emtpy-state-container" *ngIf="visible">
+  <div class="empty-state">
+    <ng-lottie [options]="{ path: path }" width="{{ size }}px"> </ng-lottie>
+    <h1>{{ title }}</h1>
+    <span>{{ description }}</span>
+    <div class="empty-state-button">
+      <app-button
+        [text]="buttonText"
+        (clicked)="buttonClicked.emit()"
+        *ngIf="buttonText"
+      ></app-button>
+    </div>
+  </div>
+</div>

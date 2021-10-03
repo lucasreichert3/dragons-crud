@@ -51,6 +51,28 @@ export class DragonsListComponent implements OnInit, OnDestroy {
       );
   }
 
+  getEmptyState(): EmptyStateModel | undefined {
+    const isEmpty = !this.loading && this.dragons.length === 0;
+
+    if (this.errorMessage) {
+      return {
+        title: 'Ocorreu um problema!',
+        description: 'Não foi possível listar os dragões!',
+        buttonText: 'Tentar novamente',
+        buttonCallback: () => this.tryAgain(),
+      };
+    } else if (isEmpty) {
+      return {
+        title: 'Não há dragões!',
+        description: 'Cadastre um novo dragão no botão!',
+        buttonText: 'Novo dragão',
+        buttonCallback: () => this.showDragonModal(),
+      };
+    }
+
+    return;
+  }
+
   showDragonModal(dragon?: Dragon) {
     this.editModal = true;
     this.currentEditDragon = dragon;
@@ -61,8 +83,20 @@ export class DragonsListComponent implements OnInit, OnDestroy {
     this.currentEditDragon = undefined;
   }
 
+  tryAgain() {
+    this.errorMessage = false;
+    this.loadDragons();
+  }
+
   ngOnDestroy() {
     this.unSubscribe.next();
     this.unSubscribe.complete();
   }
+}
+
+export interface EmptyStateModel {
+  title: string;
+  description: string;
+  buttonText?: string;
+  buttonCallback: () => void;
 }

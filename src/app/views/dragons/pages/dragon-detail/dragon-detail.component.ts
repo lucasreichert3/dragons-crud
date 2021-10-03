@@ -14,7 +14,7 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 export class DragonDetailComponent implements OnInit, OnDestroy {
   dragon!: Dragon;
   loading = false;
-  errorMessage = true;
+  errorMessage = false;
   unSubscribe = new Subject<void>();
   backIcon = faChevronLeft;
 
@@ -46,6 +46,11 @@ export class DragonDetailComponent implements OnInit, OnDestroy {
 
   backToList() {
     this.router.navigate(['/dragons']);
+  }
+
+  tryAgain() {
+    this.errorMessage = false
+    this.getDragon()
   }
 
   ngOnDestroy() {
