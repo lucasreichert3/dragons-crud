@@ -52,6 +52,7 @@ export class DragonListItemComponent implements OnInit, OnDestroy {
   }
 
   deleteDragon() {
+    this.loading = true;
     this.dragonsService
       .deleteDragon(this.dragon.id)
       .pipe(takeUntil(this.unSubscribe))

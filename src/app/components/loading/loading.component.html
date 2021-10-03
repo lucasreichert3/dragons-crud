@@ -1,5 +1,14 @@
-<div class="loading-container">
+<div class="loading-container" *ngIf="!hasContent">
   <div class="loader" *ngIf="isLoading"></div>
 </div>
 
-
+<div class="with-content" [class.without-content]="!hasContent">
+  <div
+    class="loader"
+    *ngIf="isLoading"
+    [ngStyle]="{ 'width.px': size, 'height.px': size }"
+  ></div>
+  <div class="content" [class.content-loading]="isLoading" #content>
+    <ng-content></ng-content>
+  </div>
+</div>
