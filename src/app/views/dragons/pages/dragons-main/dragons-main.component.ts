@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from 'src/app/views/auth/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-dragons-main',

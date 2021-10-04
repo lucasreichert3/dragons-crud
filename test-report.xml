@@ -1,8 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/views/auth/pages/login-main/login-main.component.spec.ts">
+    <testCase name="LoginMainComponent should create" duration="108"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/views/dragons/pages/dragons-main/dragons-main.component.spec.ts">
+    <testCase name="DragonsMainComponent should create" duration="198"/>
+    <testCase name="DragonsMainComponent should logout" duration="93"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/views/auth/auth.service.spec.ts">
+    <testCase name="AuthService should be created" duration="50"/>
+    <testCase name="AuthService getCurrentUser should return user" duration="20"/>
+    <testCase name="AuthService getCurrentUser should not return user" duration="14"/>
+    <testCase name="AuthService login should login" duration="21"/>
+    <testCase name="AuthService login should not login" duration="19"/>
+    <testCase name="AuthService logout should remove logged key from cookie" duration="39"/>
+    <testCase name="AuthService saveUser should add logged user with cookie service" duration="20"/>
+    <testCase name="AuthService createUser should create user" duration="17"/>
+    <testCase name="AuthService createUser should not create user" duration="18"/>
+    <testCase name="AuthService getUsersList should list return users from storage" duration="16"/>
+    <testCase name="AuthService getUsersList should return empty array" duration="16"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/views/dragons/components/dragon-edit-modal/dragon-edit-modal.component.spec.ts">
+    <testCase name="DragonEditModalComponent should create" duration="207"/>
+    <testCase name="DragonEditModalComponent getModalTitle creating" duration="121"/>
+    <testCase name="DragonEditModalComponent getModalTitle editing" duration="94"/>
+    <testCase name="DragonEditModalComponent should close modal" duration="115"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/views/auth/components/default-login/default-login.component.spec.ts">
+    <testCase name="DefaultLoginComponent should create" duration="279"/>
+    <testCase name="DefaultLoginComponent should init form" duration="119"/>
+    <testCase name="DefaultLoginComponent should emit event if form is valid" duration="118"/>
+    <testCase name="DefaultLoginComponent should not emit event if form is invalid" duration="118"/>
+  </file>
   <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/resolvers/session.resolver.spec.ts">
-    <testCase name="DragonsService should be created" duration="37"/>
-    <testCase name="DragonsService should redirect to dragons route when user is logged" duration="13"/>
-    <testCase name="DragonsService should not redirect to dragons route when user is not logged" duration="10"/>
+    <testCase name="DragonsService should be created" duration="33"/>
+    <testCase name="DragonsService should redirect to dragons route when user is logged" duration="25"/>
+    <testCase name="DragonsService should not redirect to dragons route when user is not logged" duration="33"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/views/auth/pages/login/login.component.spec.ts">
+    <testCase name="LoginComponent should create" duration="287"/>
+    <testCase name="LoginComponent should redirect to signup" duration="158"/>
+    <testCase name="LoginComponent should redirect to dragons route if is logged" duration="169"/>
+    <testCase name="LoginComponent should show toast if user is incorrect" duration="131"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/components/loading/loading.component.spec.ts">
+    <testCase name="LoadingComponent should create" duration="109"/>
+    <testCase name="LoadingComponent should has content be true" duration="62"/>
+    <testCase name="LoadingComponent should has content be false" duration="47"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/views/auth/pages/signup/signup.component.spec.ts">
+    <testCase name="SignupComponent should create" duration="270"/>
+    <testCase name="SignupComponent should redirect to signup" duration="183"/>
+    <testCase name="SignupComponent should redirect to dragons route if is logged" duration="176"/>
+    <testCase name="SignupComponent should show toast if user is incorrect" duration="137"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/guard/security.guard.spec.ts">
+    <testCase name="DragonsService should be created" duration="53"/>
+    <testCase name="DragonsService sould return true when user is logged" duration="31"/>
+    <testCase name="DragonsService sould return false when user is not logged" duration="90"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/views/dragons/components/dragon-list-item/dragon-list-item.component.spec.ts">
+    <testCase name="DragonListItemComponent should create" duration="273"/>
+    <testCase name="DragonListItemComponent showConfirm should delete dragon when confirm" duration="147"/>
+    <testCase name="DragonListItemComponent showConfirm should not delete dragon when confirm" duration="135"/>
+    <testCase name="DragonListItemComponent deleteDragon success callback" duration="94"/>
+    <testCase name="DragonListItemComponent deleteDragon error callback" duration="108"/>
+    <testCase name="DragonListItemComponent error message should show error toast" duration="120"/>
+    <testCase name="DragonListItemComponent should redirect to detail" duration="106"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/components/input/input.component.spec.ts">
+    <testCase name="InputComponent should create" duration="138"/>
+    <testCase name="InputComponent show input errors should return errors array" duration="94"/>
+    <testCase name="InputComponent show input errors should not return errors array" duration="72"/>
+    <testCase name="InputComponent should get input controller" duration="57"/>
+    <testCase name="InputComponent should validate field should return false when field has not errors" duration="45"/>
+    <testCase name="InputComponent should validate field should return false when field is not dirty" duration="73"/>
+    <testCase name="InputComponent should validate field should return false when field is dirty and has error" duration="40"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/views/dragons/state/dragons.service.spec.ts">
+    <testCase name="DragonsService should be created" duration="54"/>
+    <testCase name="DragonsService getAllDragons" duration="20"/>
+    <testCase name="DragonsService getDragon" duration="15"/>
+    <testCase name="DragonsService saveDragon" duration="19"/>
+    <testCase name="DragonsService update" duration="14"/>
+    <testCase name="DragonsService delete" duration="27"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/components/confirmation-modal/confirmation-modal.component.spec.ts">
+    <testCase name="ConfirmationModalComponent should create" duration="115"/>
+    <testCase name="ConfirmationModalComponent should close when confirm" duration="44"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/app.component.spec.ts">
+    <testCase name="AppComponent should create the app" duration="96"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/components/button/button.component.spec.ts">
+    <testCase name="ButtonComponent should create" duration="31"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/components/empty-state/empty-state.component.spec.ts">
+    <testCase name="EmptyStateComponent should create" duration="59"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/views/dragons/pages/dragon-detail/dragon-detail.component.spec.ts">
+    <testCase name="DragonDetailComponent should create" duration="367"/>
+    <testCase name="DragonDetailComponent should load dragon when init" duration="169"/>
+    <testCase name="DragonDetailComponent getDragon success callback" duration="174"/>
+    <testCase name="DragonDetailComponent getDragon error callback" duration="124"/>
+    <testCase name="DragonDetailComponent should back to list" duration="79"/>
+    <testCase name="DragonDetailComponent should try to get dragon again" duration="66"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/views/dragons/components/dragon-form/dragon-form.component.spec.ts">
+    <testCase name="DragonFormComponent should create" duration="291"/>
+    <testCase name="DragonFormComponent init form should init form with value" duration="153"/>
+    <testCase name="DragonFormComponent init form should init empty form" duration="127"/>
+    <testCase name="DragonFormComponent handleSave should save dragon" duration="138"/>
+    <testCase name="DragonFormComponent handleSave should not save dragon" duration="141"/>
+    <testCase name="DragonFormComponent saveDragon should save dragon" duration="124"/>
+    <testCase name="DragonFormComponent saveDragon should save dragon" duration="141"/>
+    <testCase name="DragonFormComponent getActionText when has dragon" duration="129"/>
+    <testCase name="DragonFormComponent getActionText when has not dragon" duration="138"/>
+    <testCase name="DragonFormComponent showMessage success message" duration="117"/>
+    <testCase name="DragonFormComponent showMessage success message" duration="83"/>
+    <testCase name="DragonFormComponent getSaveDragonObservable should return save request" duration="71"/>
+    <testCase name="DragonFormComponent getSaveDragonObservable should return update request" duration="43"/>
+  </file>
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/views/dragons/pages/dragons-list/dragons-list.component.spec.ts">
+    <testCase name="DragonsListComponent should create" duration="399"/>
+    <testCase name="DragonsListComponent should list dragons when init" duration="276"/>
+    <testCase name="DragonsListComponent should get list from store" duration="225"/>
+    <testCase name="DragonsListComponent load dragons success callback" duration="218"/>
+    <testCase name="DragonsListComponent load dragons error callback" duration="104"/>
+    <testCase name="DragonsListComponent getEmptyState should return error message" duration="91"/>
+    <testCase name="DragonsListComponent getEmptyState should return emtpy state when returns empty array of dragons" duration="66"/>
+    <testCase name="DragonsListComponent getEmptyState should return undefined when is loading" duration="58"/>
+    <testCase name="DragonsListComponent getEmptyState should return undefined when has dragons" duration="60"/>
+    <testCase name="DragonsListComponent showDragonModal should open edit modal" duration="63"/>
+    <testCase name="DragonsListComponent showDragonModal should open create modal" duration="54"/>
+    <testCase name="DragonsListComponent should handle modal close" duration="56"/>
+    <testCase name="DragonsListComponent should try again" duration="53"/>
   </file>
 </testExecutions>
