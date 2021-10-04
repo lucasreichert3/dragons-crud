@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Dragon, DragonCreateInput } from './dragons.model';
-import { dragonApiUrl } from 'src/app/constants/api';
+import { dragonApiUrl } from '../../../constants/api';
 import { DragonsStore } from './dragons.store';
 import { tap } from 'rxjs/operators';
 

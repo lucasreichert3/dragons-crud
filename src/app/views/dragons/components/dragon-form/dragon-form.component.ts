@@ -1,8 +1,16 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
-import { validateAllFields } from 'src/app/utils/validateField';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { validateAllFields } from '../../../../utils/validateField';
 import { Dragon } from '../../state/dragons.model';
 import { DragonsService } from '../../state/dragons.service';
 
@@ -11,14 +19,14 @@ import { DragonsService } from '../../state/dragons.service';
   templateUrl: './dragon-form.component.html',
   styleUrls: ['./dragon-form.component.scss'],
 })
-export class DragonFormComponent implements OnInit {
+export class DragonFormComponent implements OnInit, OnDestroy {
   @Input() dragon?: Dragon;
   @Output() saved = new EventEmitter<void>();
 
   loading = false;
   errorMessage = { required: 'Este campo é obrigatório' };
-
   dragonForm!: FormGroup;
+  unSubscribe = new Subject<void>();
 
   constructor(
     private fb: FormBuilder,
@@ -47,23 +55,25 @@ export class DragonFormComponent implements OnInit {
   saveDragon() {
     this.loading = true;
 
-    this.getSaveDragonObservable().subscribe(
-      () => {
-        this.loading = false;
-        this.showMessage(
-          false,
-          `Dragão ${this.getActionText().success} com sucesso!`
-        );
-        this.saved.emit(this.dragonForm.value);
-      },
-      () => {
-        this.loading = false;
-        this.showMessage(
-          true,
-          `Ocorreu um problema ao ${this.getActionText().error} o dragão!`
-        );
-      }
-    );
+    this.getSaveDragonObservable()
+      .pipe(takeUntil(this.unSubscribe))
+      .subscribe(
+        () => {
+          this.loading = false;
+          this.showMessage(
+            false,
+            `Dragão ${this.getActionText().success} com sucesso!`
+          );
+          this.saved.emit(this.dragonForm.value);
+        },
+        () => {
+          this.loading = false;
+          this.showMessage(
+            true,
+            `Ocorreu um problema ao ${this.getActionText().error} o dragão!`
+          );
+        }
+      );
   }
 
   getActionText(): { error: string; success: string } {
@@ -88,5 +98,10 @@ export class DragonFormComponent implements OnInit {
       };
       return this.dragonService.update(newDragonValue);
     }
+  }
+
+  ngOnDestroy() {
+    this.unSubscribe.next();
+    this.unSubscribe.complete();
   }
 }

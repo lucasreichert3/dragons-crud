@@ -9,7 +9,7 @@ import {
 import { faTrash, faPencilAlt, faEye } from '@fortawesome/free-solid-svg-icons';
 import { Dragon } from '../../state/dragons.model';
 import { SimpleModalService } from 'ngx-simple-modal';
-import { ConfirmationModalComponent } from 'src/app/components/confirmation-modal/confirmation-modal.component';
+import { ConfirmationModalComponent } from '../../../../components/confirmation-modal/confirmation-modal.component';
 import { DragonsService } from '../../state/dragons.service';
 import { takeUntil } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
