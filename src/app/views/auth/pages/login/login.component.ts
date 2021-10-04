@@ -11,8 +11,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
-
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -20,12 +18,7 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
-  ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      email: this.fb.control('', [Validators.required, Validators.email]),
-      password: this.fb.control('', [Validators.required]),
-    });
-  }
+  ngOnInit(): void {}
 
   redirectToSignup(): void {
     this.router.navigate(['/signup']);
@@ -33,12 +26,10 @@ export class LoginComponent implements OnInit {
 
   login(user: User) {
     try {
-      this.authService.login(user)
+      this.authService.login(user);
       this.router.navigate(['/dragons']);
     } catch (error) {
-      this.toastr.error(
-        'Usuário ou senha incorreto',
-      );
+      this.toastr.error('Usuário ou senha incorreto');
     }
   }
 }

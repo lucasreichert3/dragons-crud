@@ -7,8 +7,9 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LoginMainComponent } from './pages/login-main/login-main.component';
 import { InputModule } from '../../components/input/input.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ButtonModule } from 'src/app/components/button/button.module';
+
 import { DefaultLoginComponent } from './components/default-login/default-login.component';
+import { ButtonModule } from '../../components/button/button.module';
 
 @NgModule({
   declarations: [LoginComponent, SignupComponent, LoginMainComponent, DefaultLoginComponent],
