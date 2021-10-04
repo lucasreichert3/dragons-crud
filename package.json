@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -40,10 +41,14 @@
     "@angular/compiler-cli": "~11.2.6",
     "@datorama/akita-ngdevtools": "^6.0.0",
     "@types/jasmine": "~3.6.0",
+    "@types/jest": "^27.0.2",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
+    "jest": "^27.2.4",
+    "jest-preset-angular": "^10.0.1",
+    "jest-sonar-reporter": "^2.0.0",
     "karma": "~6.1.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
@@ -53,5 +58,28 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.1.5"
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setup-jest.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/dist/"
+    ],
+    "moduleNameMapper": {},
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "<rootDir>/tsconfig.spec.json",
+        "stringifyContentPathRegex": "\\.html$"
+      }
+    },
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html"
+    ],
+    "testResultsProcessor": "jest-sonar-reporter"
   }
 }

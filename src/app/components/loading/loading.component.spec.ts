@@ -22,4 +22,18 @@ describe('LoadingComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should has content be true', () => {
+    component.content.nativeElement.innerHTML = '<span></span>'
+    component.ngOnInit()
+
+    expect(component.hasContent).toBeTruthy()
+  })
+
+  it('should has content be false', () => {
+    component.content.nativeElement.innerHTML = ''
+    component.ngOnInit()
+
+    expect(component.hasContent).toBeFalsy()
+  })
 });

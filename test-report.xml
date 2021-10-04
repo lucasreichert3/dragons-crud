@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/home/lucas/dev/projects/crud-dragon-angular/src/app/resolvers/session.resolver.spec.ts">
+    <testCase name="DragonsService should be created" duration="37"/>
+    <testCase name="DragonsService should redirect to dragons route when user is logged" duration="13"/>
+    <testCase name="DragonsService should not redirect to dragons route when user is not logged" duration="10"/>
+  </file>
+</testExecutions>

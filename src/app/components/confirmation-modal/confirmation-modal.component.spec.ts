@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ButtonModule } from '../button/button.module';
 
 import { ConfirmationModalComponent } from './confirmation-modal.component';
 
@@ -8,7 +9,8 @@ describe('ConfirmationModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConfirmationModalComponent ]
+      declarations: [ ConfirmationModalComponent ],
+      imports: [ButtonModule]
     })
     .compileComponents();
   });
@@ -22,4 +24,14 @@ describe('ConfirmationModalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should close when confirm', () => {
+    component.result = false
+    const closeSpy = jest.spyOn(component, 'close').mockImplementation()
+
+    component.confirm()
+
+    expect(component.result).toBeTruthy()
+    expect(closeSpy).toHaveBeenCalled()
+  })
 });

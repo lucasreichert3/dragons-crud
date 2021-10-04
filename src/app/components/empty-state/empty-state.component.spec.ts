@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LottieModule } from 'ngx-lottie';
+import { ButtonModule } from '../button/button.module';
 
 import { EmptyStateComponent } from './empty-state.component';
 
@@ -8,7 +10,8 @@ describe('EmptyStateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmptyStateComponent ]
+      declarations: [ EmptyStateComponent ],
+      imports: [ButtonModule, LottieModule]
     })
     .compileComponents();
   });

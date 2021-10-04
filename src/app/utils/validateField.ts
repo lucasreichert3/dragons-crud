@@ -1,5 +1,3 @@
-import { FormControl } from '@angular/forms';
-
 export function validateAllFields(formGroup: any) {
   Object.keys(formGroup.controls).forEach((field) => {
     const control = formGroup.get(field);
